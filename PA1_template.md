@@ -19,7 +19,7 @@ stepsByDate <- aggregate(steps ~ date, data = activity, FUN = sum)
 barplot(stepsByDate$steps, names.arg = stepsByDate$date, xlab = "date", ylab = "steps")
 ```
 
-![](./figure/unnamed-chunk-2-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
 
 ```r
 mean <- format(mean(stepsByDate$steps), nsmall = 2)
@@ -37,7 +37,7 @@ stepsInterval <- aggregate(steps ~ interval, data = activity, FUN = "mean")
 plot(stepsInterval, type = "l")
 ```
 
-![](./figure/unnamed-chunk-3-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 ```r
 max <- stepsInterval$interval[which.max(stepsInterval$steps)]
@@ -55,6 +55,8 @@ nas <- sum(is.na(activity))
 
 Total number of missing values: <b>2304</b>
 
+I use the means of the 5-minute intervals as fillers for missing values.
+
 
 ```r
 activity <- merge(activity, stepsInterval, by = "interval", suffixes = c("", 
@@ -70,7 +72,7 @@ stepsBydate <- aggregate(steps ~ date, data = activity, FUN = sum)
 barplot(stepsBydate$steps, names.arg = stepsBydate$date, xlab = "date", ylab = "steps")
 ```
 
-![](./figure/unnamed-chunk-6-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
 
 ```r
 newMean <- format(mean(stepsBydate$steps), nsmall = 2)
@@ -110,5 +112,5 @@ for (type in c("weekend", "weekday"))
 }
 ```
 
-![](./figure/unnamed-chunk-7-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
 

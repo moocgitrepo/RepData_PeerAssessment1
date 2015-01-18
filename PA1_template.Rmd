@@ -5,6 +5,7 @@ output:
     keep_md: true
 ---
 
+
 ## Loading and preprocessing the data
 
 ```{r}
@@ -46,6 +47,8 @@ nas <- sum(is.na(activity))
 
 
 Total number of missing values: <b>`r nas`</b>
+
+I use the means of the 5-minute intervals as fillers for missing values.
 
 ```{r}
 activity <- merge(activity, stepsInterval, by = "interval", suffixes = c("", 

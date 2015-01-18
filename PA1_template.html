@@ -83,6 +83,7 @@ plot(stepsInterval, type = &quot;l&quot;)</code></pre>
 <h2>Imputing missing values</h2>
 <pre class="r"><code>nas &lt;- sum(is.na(activity))</code></pre>
 <p>Total number of missing values: <b>2304</b></p>
+<p>I use the means of the 5-minute intervals as fillers for missing values.</p>
 <pre class="r"><code>activity &lt;- merge(activity, stepsInterval, by = &quot;interval&quot;, suffixes = c(&quot;&quot;, 
     &quot;.y&quot;))
 nas &lt;- is.na(activity$steps)
